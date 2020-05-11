@@ -51,7 +51,7 @@ umask 077
 wg genkey | tee privatekey | wg pubkey > publickey
 
 #Pivate Key
-pir_key=$(cat privatekey)
+pri_key=$(cat privatekey)
 
 #Public Key
 pub_key=$(cat publickey)
