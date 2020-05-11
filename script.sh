@@ -57,7 +57,7 @@ pri_key=$(cat privatekey)
 pub_key=$(cat publickey)
 
 #Create wg0.conf config file
-cat <<EOF>>wg0.conf
+cat <<EOF>wg0.conf
 [interface]
 Address = $interface_ip
 PrivateKey = $pri_key
