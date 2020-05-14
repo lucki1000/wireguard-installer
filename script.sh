@@ -87,6 +87,7 @@ if [[ "$1" == "install" ]]; then
 	echo "pub_ip_or_domain="$pub_ip_or_domain >> /etc/wireguard-installer/vars.conf
 	echo "ip_client_mask="$ip_client_mask >> /etc/wireguard-installer/vars.conf
 	echo "dns="$dns >> /etc/wireguard-installer/vars.conf
+	mkdir ~/client_configs/
 fi
 
 source /etc/wireguard-installer/vars.conf
@@ -103,8 +104,10 @@ if [[ "$1" == "status" ]]; then
 fi
 
 if [[ "$1" == "add client" ]]; then
+	read -p "Name of client: " cli_name
 	read -p "Type the IP for your device: " device_ip
 	
+	cat <<EOF>>~/client_configs/{cli_name}.conf
 	[Interface]
 	Address = $device_ip/$ip_client_mask
 	PrivateKey = $cli_pri_key
@@ -115,4 +118,5 @@ if [[ "$1" == "add client" ]]; then
 	Endpoint = $pub_ip_or_domain:$port
 	AllowedIPs = 0.0.0.0/0
 	PersistentKeepalive = 21
+	EOF
 fi
