@@ -1,5 +1,9 @@
 = **Wireguard Installer**
 
+== **Info**
+
+This script wasn't tested so far, but can be the first. :)
+
 == **Requirements:**
 
 You need to install the Wireguard package manually.
@@ -11,4 +15,5 @@ Also you need to have systemd.
 make script.sh executable and run sudo or as root ```./script.sh install```
 
 == **Add a client**
-sudo ./script.sh add
+
+```sudo ./script.sh add```
