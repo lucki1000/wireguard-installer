@@ -2,7 +2,7 @@
 
 == **Info**
 
-This script wasn't tested so far, but can be the first. :)
+This script wasn't tested so far, but you can be the first. :)
 
 == **Requirements:**
 
@@ -15,6 +15,6 @@ Also you need to have systemd.
 make script.sh executable and run with sudo or as root ```./script.sh install```
 
 == **Add a client**
-```
+----
 sudo ./script.sh add
-```
+----
