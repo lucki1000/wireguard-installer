@@ -12,10 +12,9 @@ Also you need to have systemd.
 
 == **Install:**
 
-make script.sh executable and run sudo or as root ```./script.sh install```
+make script.sh executable and run with sudo or as root ```./script.sh install```
 
 == **Add a client**
-
 ```
 sudo ./script.sh add
 ```
