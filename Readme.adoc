@@ -1,8 +1,10 @@
 = **Wireguard Installer**
 
-== **Info**
+== **Info:**
 
 This script wasn't tested so far, but you can be the first. :)
+
+I intend to add more things like QR Code and so on.
 
 == **Requirements:**
 
