@@ -103,7 +103,7 @@ if [[ "$1" == "status" ]]; then
 	sudo wg show
 fi
 
-if [[ "$1" == "add client" ]]; then
+if [[ "$1" == "add" ]]; then
 	read -p "Name of client: " cli_name
 	read -p "Type the IP for your device: " device_ip
 	
