@@ -34,7 +34,7 @@ if [[ "$1" == "install" ]]; then
 	#Set DNS Server
 	    read -p "Enter DNS, leave empty when you would use default value: " dns
 
-    #Check for empty value
+	#Check for empty value
 	if [[ -z "dns" ]]; then
 		dns=$interface_ip
 	fi
@@ -67,7 +67,7 @@ if [[ "$1" == "install" ]]; then
 	cli_pub_key=$(cat client_public.key)
 
 	#Create wg0.conf config file
-	cat <<EOF>wg0.conf
+	cat <<EOF> wg0.conf
 	[interface]
 	Address = $interface_ip
 	PrivateKey = $ser_pri_key
@@ -78,12 +78,11 @@ if [[ "$1" == "install" ]]; then
 	[Peer]
 	PublicKey = $cli_pub_key
 	AllowedIPs = $ip_client
-	EOF
+EOF
 	sudo systemctl enable wg-quick@wg0
 	wg-quick up wg0
 	mkdir /etc/wireguard-installer
-	echo "port="$port "\ninterface_ip="$interface_ip "\nser_pri_key="$ser_pri_key "\nser_pub_key="$ser_pub_key "\ncli_pri_key="$cli_pri_key "\ncli_pub_key="$cli_pub_key >> /etc/wireguard-installer/vars.conf
-	read -p "Your Public IP or DynDns: " pub_ip_or_domain
+	echo -e "port="$port "\ninterface_ip="$interface_ip "\nser_pri_key="$ser_pri_key "\nser_pub_key="$ser_pub_key "\ncli_pri_key="$cli_pri_key "\ncli_pub_key="$cli_pub_key >> /etc/wireguard-installer/vars.conf >> /etc/wireguard-installer/vars.conf	read -p "Your Public IP or DynDns: " pub_ip_or_domain
 	echo "pub_ip_or_domain="$pub_ip_or_domain >> /etc/wireguard-installer/vars.conf
 	echo "ip_client_mask="$ip_client_mask >> /etc/wireguard-installer/vars.conf
 	echo "dns="$dns >> /etc/wireguard-installer/vars.conf
@@ -107,7 +106,7 @@ if [[ "$1" == "add" ]]; then
 	read -p "Name of client: " cli_name
 	read -p "Type the IP for your device: " device_ip
 	
-	cat <<EOF>>~/client_configs/{cli_name}.conf
+	cat <<EOF>> ~/client_configs/{cli_name}.conf
 	[Interface]
 	Address = $device_ip/$ip_client_mask
 	PrivateKey = $cli_pri_key
@@ -118,5 +117,5 @@ if [[ "$1" == "add" ]]; then
 	Endpoint = $pub_ip_or_domain:$port
 	AllowedIPs = 0.0.0.0/0
 	PersistentKeepalive = 21
-	EOF
+EOF
 fi
