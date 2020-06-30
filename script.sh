@@ -82,7 +82,8 @@ EOF
 	sudo systemctl enable wg-quick@wg0
 	wg-quick up wg0
 	mkdir /etc/wireguard-installer
-	echo -e "port="$port "\ninterface_ip="$interface_ip "\nser_pri_key="$ser_pri_key "\nser_pub_key="$ser_pub_key "\ncli_pri_key="$cli_pri_key "\ncli_pub_key="$cli_pub_key >> /etc/wireguard-installer/vars.conf >> /etc/wireguard-installer/vars.conf	read -p "Your Public IP or DynDns: " pub_ip_or_domain
+	echo -e "port="$port "\ninterface_ip="$interface_ip "\nser_pri_key="$ser_pri_key "\nser_pub_key="$ser_pub_key "\ncli_pri_key="$cli_pri_key "\ncli_pub_key="$cli_pub_key >> /etc/wireguard-installer/vars.conf >> /etc/wireguard-installer/vars.conf	
+	read -p "Your Public IP or DynDns: " pub_ip_or_domain
 	echo "pub_ip_or_domain="$pub_ip_or_domain >> /etc/wireguard-installer/vars.conf
 	echo "ip_client_mask="$ip_client_mask >> /etc/wireguard-installer/vars.conf
 	echo "dns="$dns >> /etc/wireguard-installer/vars.conf
