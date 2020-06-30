@@ -107,7 +107,7 @@ if [[ "$1" == "add" ]]; then
 	read -p "Name of client: " cli_name
 	read -p "Type the IP for your device: " device_ip
 	
-	cat <<EOF>> ~/client_configs/{cli_name}.conf
+	cat <<EOF>> ~/client_configs/${cli_name}.conf
 	[Interface]
 	Address = $device_ip/$ip_client_mask
 	PrivateKey = $cli_pri_key
